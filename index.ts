@@ -36,7 +36,6 @@ export default function manageEntity<T, Y, K extends keyof T & keyof Y>(
 
     addedEntities.push(added);
     addedIndexes[String(entity[keyToCompare])] = indexOfInFreeEntities;
-    console.log({ addedIndexes });
   }
 
   function removeEntity(entity: T | Y) {
@@ -67,7 +66,6 @@ export default function manageEntity<T, Y, K extends keyof T & keyof Y>(
 
     removedEntities.push(removed);
     removedIndexes[String(entity[keyToCompare])] = indexOfInRelatedEntities;
-    console.log({ removedIndexes });
   }
 
   return { addedEntities, removedEntities, addEntity, removeEntity };
