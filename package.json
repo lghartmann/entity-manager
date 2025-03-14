@@ -1,0 +1,34 @@
+{
+  "name": "entity-manager",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "lint": "tsc"
+  },
+  "keywords": [
+    "entity management",
+    "entity relation",
+    "relation",
+    "manage",
+    "portfolio logic"
+  ],
+  "author": "github.com/lghartmann",
+  "license": "MIT",
+  "description": "This package will manage portfolio addition/removal of entities, say Clients, if i have `available` clients listed in a page and i want to add them to my portfolio this package is very useful for this purpose. If i mistakenly added a Client to my portfolio i can undo the relation, the Client will return to it's original position (index).",
+  "repository": {
+    "type": "git",
+    "url": "https://www.google.com.br"
+  },
+  "bugs": {
+    "url": "https://www.google.com.br"
+  },
+  "homepage": "https://www.google.com.br",
+  "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
