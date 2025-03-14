@@ -16,11 +16,15 @@ export default function manageEntity<T, Y, K extends keyof T & keyof Y>(
     const isInRemoved = indexOfInRemovedEntities > -1;
     if (isInRemoved) {
       const [removed] = removedEntities.splice(indexOfInRemovedEntities, 1);
-      if (!removed) throw new Error(`Item: ${removed} not found`);
+      if (!removed) {
+        throw new Error(
+          `Removed entity: ${removed} not found in removedEntities`
+        );
+      }
 
       const originalIndex = removedIndexes[String(entity[keyToCompare])];
-      if (!originalIndex) {
-        throw new Error(`Item Index: ${originalIndex} index not found`);
+      if (typeof originalIndex !== "number") {
+        throw new Error(`Removed entity Index: ${originalIndex} not found`);
       }
 
       delete removedIndexes[String(entity[keyToCompare])];
@@ -32,7 +36,7 @@ export default function manageEntity<T, Y, K extends keyof T & keyof Y>(
       (free) => free[keyToCompare] === entity[keyToCompare]
     );
     const [added] = freeEntities.splice(indexOfInFreeEntities, 1);
-    if (!added) throw new Error(`Item: ${added} not found`);
+    if (!added) throw new Error(`Free entity: ${added} not found`);
 
     addedEntities.push(added);
     addedIndexes[String(entity[keyToCompare])] = indexOfInFreeEntities;
@@ -46,11 +50,13 @@ export default function manageEntity<T, Y, K extends keyof T & keyof Y>(
 
     if (isInAdded) {
       const [added] = addedEntities.splice(indexOfInAddedEntities, 1);
-      if (!added) throw new Error(`Item: ${added} not found`);
+      if (!added) {
+        throw new Error(`Added entity: ${added} not found in addedEntities`);
+      }
 
       const originalIndex = addedIndexes[String(entity[keyToCompare])];
-      if (!originalIndex) {
-        throw new Error(`Item Index: ${originalIndex} index not found`);
+      if (typeof originalIndex !== "number") {
+        throw new Error(`Added entity index: ${originalIndex} not found`);
       }
 
       delete addedIndexes[String(entity[keyToCompare])];
@@ -62,7 +68,7 @@ export default function manageEntity<T, Y, K extends keyof T & keyof Y>(
       (rel) => rel[keyToCompare] === entity[keyToCompare]
     );
     const [removed] = relatedEntities.splice(indexOfInRelatedEntities, 1);
-    if (!removed) throw new Error(`Item: ${removed} not found`);
+    if (!removed) throw new Error(`Related entity: ${removed} not found`);
 
     removedEntities.push(removed);
     removedIndexes[String(entity[keyToCompare])] = indexOfInRelatedEntities;
