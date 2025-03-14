@@ -20,7 +20,7 @@
   "description": "This package will manage portfolio addition/removal of entities, say Clients, if i have `available` clients listed in a page and i want to add them to my portfolio this package is very useful for this purpose. If i mistakenly added a Client to my portfolio i can undo the relation, the Client will return to it's original position (index).",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lghartmann/entity-manager"
+    "url": "git+https://github.com/lghartmann/entity-manager.git"
   },
   "bugs": {
     "url": "https://github.com/lghartmann/entity-manager/issues"
