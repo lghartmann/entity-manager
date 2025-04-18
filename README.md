@@ -1,3 +1,5 @@
+[demo](https://portfolio-entity-manager-demo.netlify.app/)
+
 Hi! I've made this simple package for frontend intended use, when you deal with frontend state management in some layouts the logic can get messy.
 
 Developing this simple library i thought of every action being "undoable" and the original state going back to original, if you find any problem please create an issue.
