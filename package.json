@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup index.ts --format cjs,esm --dts",
-    "lint": "tsc"
+    "lint": "tsc",
+    "test": "vitest",
+    "test:watch": "vitest watch"
   },
   "keywords": [
     "entity management",
@@ -28,8 +30,10 @@
   "homepage": "https://github.com/lghartmann/entity-manager#readme",
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
+    "@vitest/runner": "^3.1.1",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
   },
   "files": [
     "dist"
